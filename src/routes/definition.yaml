@@ -1,0 +1,12 @@
+openapi: "1.0.1"
+info:
+  title: "Calculator API"
+  version: "1.0.0"
+tags:
+  - name: health
+    description: Health check
+  - name: calculator
+    description: Calculator operations
+externalDocs:
+  url: https://localhost:3000/
+  description: My calculator documentation
