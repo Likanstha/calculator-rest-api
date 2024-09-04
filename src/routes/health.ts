@@ -1,4 +1,5 @@
 import { Request, Router } from "express";
+import { HealthResponseDto } from "../types";
 
 export const router = Router();
 
@@ -21,6 +22,6 @@ export const router = Router();
  *         $ref: '#/components/responses/InternalServerError'
  */
 
-router.get("/", (req: Request, res) => {
-  res.send({ message: "OK", timestamp: req.timestamp });
+router.get("/", (req: Request<{}, HealthResponseDto>, res) => {
+  res.send({ status: "OK", timestamp: req.timestamp! });
 });
