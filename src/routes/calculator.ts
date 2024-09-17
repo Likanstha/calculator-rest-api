@@ -1,6 +1,5 @@
 import { Request, Router } from "express";
 import { CalculatorCommandDto, CalculatorResultDto } from "../types";
-import { validateCalculatorRequest } from "../middlewares";
 import { NotFoundError } from "../error";
 
 export const router = Router();

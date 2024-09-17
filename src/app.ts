@@ -1,5 +1,10 @@
 import express from "express";
-import { healthRouter, calculatorRouter, apiDocsRouter } from "./routes";
+import {
+  healthRouter,
+  calculatorRouter,
+  apiDocsRouter,
+  healthCheckRouter,
+} from "./routes";
 import {
   addTimestamp,
   errorHandler,
@@ -16,6 +21,7 @@ app.use(openApiValidator);
 
 app.use("/api-docs", apiDocsRouter);
 app.use("/health", healthRouter);
+app.use("/healthCheck", healthCheckRouter);
 app.use("/calculator", calculatorRouter);
 
 app.use(errorHandler);

@@ -23,6 +23,10 @@ export interface paths {
     /** @description Health check endpoint for Calculator API */
     get: operations["healthCheck"];
   };
+  "/healthCheck": {
+    /** @description Description here */
+    get: operations["healthCheckDuplicate"];
+  };
 }
 
 export type webhooks = Record<string, never>;
@@ -57,7 +61,17 @@ export interface components {
       status: "OK";
       /**
        * @description Number of milliseconds since Epoch time
-       * @example 1688612539479
+       * @example 111111111
+       */
+      timestamp: number;
+    };
+    /** @description Health check Duplicate status */
+    HealthStatusCheck: {
+      /** @enum {string} */
+      status: "SUCCESS";
+      /**
+       * @description Number of milliseconds since Epoch time
+       * @example 11111123
        */
       timestamp: number;
     };
@@ -183,6 +197,18 @@ export interface operations {
       200: {
         content: {
           "application/json": components["schemas"]["HealthStatus"];
+        };
+      };
+      500: components["responses"]["InternalServerError"];
+    };
+  };
+  /** @description Description here */
+  healthCheckDuplicate: {
+    responses: {
+      /** @description OK */
+      200: {
+        content: {
+          "application/json": components["schemas"]["HealthStatusCheck"];
         };
       };
       500: components["responses"]["InternalServerError"];

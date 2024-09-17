@@ -1,7 +1,7 @@
 components:
   schemas:
-    HealthStatus:
-      description: Health check status
+    HealthStatusCheck:
+      description: Health check Duplicate status
       type: object
       required:
         - status
@@ -10,8 +10,8 @@ components:
         status:
           type: string
           enum:
-            - OK
+            - SUCCESS
         timestamp:
           type: integer
           description: Number of milliseconds since Epoch time
-          example: 111111111
+          example: 11111123
